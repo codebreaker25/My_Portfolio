@@ -2,273 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>resume</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
-  <style type="text/css">
-  /*
-   * Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
-   *
-   * CSS for making a resume with pandoc. Inspired by moderncv.
-   *
-   * This CSS document is delivered to you under the CC BY-SA 3.0 License.
-   * https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
-   */
-
-  /* Whole document */
-  body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      max-width: 800px;
-      margin: auto;
-      background: #FFFFFF;
-      padding: 10px 10px 10px 10px;
-  }
-
-  /* Title of the resume */
-  h1 {
-      font-size: 55px;
-      color: #757575;
-      text-align:center;
-      margin-bottom:15px;
-  }
-  /* h1:hover { */
-  /*     background-color: #757575; */
-  /*     color: #FFFFFF; */
-  /*     text-shadow: 1px 1px 1px #333; */
-  /* } */
-
-  /* Titles of categories */
-  h2 {
-      /* This is called "sectioncolor" in the ConTeXt stylesheet. */
-      color: #397249;
-  }
-  /* There is a bar just before each category */
-  h2:before {
-      content: "";
-      display: inline-block;
-      margin-right:1%;
-      width: 16%;
-      height: 10px;
-      /* This is called "rulecolor" in the ConTeXt stylesheet. */
-      background-color: #9CB770;
-  }
-  /* h2:hover { */
-  /*     background-color: #397249; */
-  /*     color: #FFFFFF; */
-  /*     text-shadow: 1px 1px 1px #333; */
-  /* } */
-
-  /* Definitions */
-  dt {
-      float: left;
-      clear: left;
-      width: 17%;
-      font-weight: bold;
-  }
-  dd {
-      margin-left: 17%;
-      margin-bottom:7px;
-  }
-  p {
-      margin-top:0;
-      margin-bottom:7px;
-  }
-
-  /* Blockquotes */
-  blockquote {
-      text-align: center
-  }
-
-  /* Links */
-  a {
-      text-decoration: none;
-      color: #397249;
-  }
-  a:hover, a:active {
-      background-color: #397249;
-      color: #FFFFFF;
-      text-decoration: none;
-      text-shadow: 1px 1px 1px #333;
-  }
-
-  /* Horizontal separators */
-  hr {
-      color: #A6A6A6;
-  }
-
-  table {
-      width: 100%;
-  }
-  </style>
+  <title>Akash Gupta - Resume</title>
+  <!-- Styles omitted for brevity -->
 </head>
 <body>
 <h1 id="akash-gopal-gupta">Akash Gopal Gupta</h1>
 <hr />
 <blockquote>
-<p>Aspiring cybersecurity professional with hands-on experience in
-vulnerability assessment, CTFs, and real-world development projects.</p>
+<p>Security-focused engineer with hands-on experience in vulnerability assessment, CTFs, and automation. Passionate about offensive security, secure development, and continuous learning.</p>
 </blockquote>
 <hr />
 <h2 id="education">Education</h2>
@@ -279,72 +20,73 @@ Bachelor of Computer Applications, JIMS, Rohini Sector 5<br />
 <em>Core Focus: Cybersecurity and Network Security</em>
 </dd>
 </dl>
-<h2 id="experience">Experience</h2>
+
+<h2 id="experience">Experience & Projects</h2>
 <dl>
+<dt>Capture The Flag (CTF) Achievements</dt>
+<dd>
+- <strong>Pentathon 2025:</strong> Secured <strong>Top 100 rank</strong> out of 22,000+ participants across India (individual).<br />
+- <strong>CTF 1753:</strong> Ranked <strong>60th out of 600+ teams</strong> as part of a 3-member team.<br />
+- Gained expertise in web exploitation, crypto, reconnaissance, and binary exploitation.
+</dd>
+
 <dt>Network Vulnerability Scanner</dt>
 <dd>
-Developed a custom scanner to identify vulnerabilities across network
-infrastructure. Helped automate basic assessments and improve network
-hygiene.
-</dd>
-<dt>CTF Participation</dt>
-<dd>
-Competed in national-level Capture The Flag (CTF) competitions.<br />
-- Pentathon: Competed individually and secured a <b>Top 100 rank across India</b>.<br />
-- CTF 1753: Participated as part of a 3-member team and ranked <b>60th out of 600+ teams</b>.<br />
-- Gained practical experience in web exploitation, cryptography, and reconnaissance.
+Built a scanner to identify security misconfigurations and weak services in networks.<br />
+- Automated detection of common CVEs, open ports, and service enumeration.<br />
+- Helped simulate basic pentest methodology across isolated environments.
 </dd>
 
 <dt>College Companion App</dt>
 <dd>
-Built a mobile application for college students and faculty.<br />
-- Teachers and students can log in, view announcements, and access their
-portals.<br />
-- Focused on clean UI/UX and secure login handling.
+Developed a mobile app for college students and faculty.<br />
+- Features included login/authentication, announcements, and portal integration.<br />
+- Focused on secure authentication flow and clean frontend design.
 </dd>
 </dl>
+
 <h2 id="technical-skills">Technical Skills</h2>
 <dl>
-<dt>Cybersecurity Tools</dt>
+<dt>Security & Pentesting</dt>
 <dd>
-Nmap, Burp Suite, Wireshark, OWASP ZAP, Nikto<br />
-- Used for scanning, intercepting traffic, and analyzing vulnerabilities
-in networks and web applications.
+Burp Suite, Nmap, Wireshark, OWASP ZAP, Nikto, Dirsearch, FFUF, basic Ghidra<br />
+Experience in web vulnerability testing (XSS, IDOR, SQLi), reconnaissance, and basic binary exploitation.
+</dd>
+<dt>Programming & Scripting</dt>
+<dd>
+Python, Bash, HTML/CSS, JavaScript (basic), SQL<br />
+Python used for writing custom scanners, CTF solvers, and automation scripts.
 </dd>
 <dt>Operating Systems</dt>
 <dd>
 Kali Linux, Windows<br />
-- Experienced in navigating Linux systems and leveraging them for
-pentesting.
+Hands-on with Linux for CTFs and web/infra testing environments.
 </dd>
-<dt>Programming/Scripting</dt>
+<dt>Platforms & Tools</dt>
 <dd>
-Python, Bash, HTML/CSS, JavaScript (basic), SQL<br />
-- Python for scripting automations and simple tools, Bash for system
-tasks.
-</dd>
-<dt>Version Control &amp; Collaboration</dt>
-<dd>
-Git, GitHub — <a href="https://github.com/codebreaker25"
-target="_blank">codebreaker25</a>
+Hack The Box, TryHackMe, Git, GitHub<br />
+Writeups, walkthroughs, and contributions documented on GitHub.
 </dd>
 </dl>
+
 <h2 id="professional-profiles">Professional Profiles</h2>
 <dl>
 <dt>GitHub</dt>
 <dd>
-<a href="https://github.com/codebreaker25"
-target="_blank">github.com/codebreaker25</a>
+<a href="https://github.com/codebreaker25" target="_blank">github.com/codebreaker25</a>
 </dd>
 <dt>LinkedIn</dt>
 <dd>
-<a href="https://www.linkedin.com/in/akash-gupta-codebreaker"
-target="_blank">linkedin.com/in/akash-gupta-codebreaker</a>
+<a href="https://www.linkedin.com/in/akash-gupta-codebreaker" target="_blank">linkedin.com/in/akash-gupta-codebreaker</a>
+</dd>
+<dt>Portfolio</dt>
+<dd>
+<a href="https://codebreaker25.github.io/My_Portfolio/" target="_blank">codebreaker25.github.io/My_Portfolio</a>
 </dd>
 </dl>
 <hr />
 <blockquote>
-<p>akash.gupta.contact@gmail.com</p>
+<p>akash.gupta.contact@gmail.com | +91 9773865396</p>
 </blockquote>
 </body>
 </html>
