@@ -4,27 +4,47 @@
   <meta charset="utf-8" />
   <title>Akash Gupta - Security Engineer Portfolio</title>
   <style>
+    :root {
+      --bg-color: #FFFFFF;
+      --text-color: #333;
+      --highlight: #397249;
+      --subtle: #9CB770;
+      --link-hover-bg: #397249;
+      --link-hover-text: #FFFFFF;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #EEE;
+      --highlight: #9CB770;
+      --subtle: #8AA35B;
+      --link-hover-bg: #9CB770;
+      --link-hover-text: #000;
+    }
+
     body {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       max-width: 800px;
       margin: auto;
-      background: #FFFFFF;
+      background: var(--bg-color);
       padding: 20px;
       line-height: 1.6;
-      color: #333;
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
     }
+
     h1 {
       font-size: 42px;
-      color: #397249;
+      color: var(--highlight);
       text-align: center;
       margin-bottom: 10px;
       letter-spacing: 1px;
     }
     h2 {
-      color: #397249;
+      color: var(--highlight);
       margin-top: 40px;
       margin-bottom: 10px;
-      border-left: 6px solid #9CB770;
+      border-left: 6px solid var(--subtle);
       padding-left: 10px;
       font-weight: 600;
     }
@@ -33,7 +53,7 @@
       clear: left;
       width: 20%;
       font-weight: bold;
-      color: #397249;
+      color: var(--highlight);
     }
     dd {
       margin-left: 22%;
@@ -47,11 +67,11 @@
     }
     a {
       text-decoration: none;
-      color: #397249;
+      color: var(--highlight);
     }
     a:hover, a:active {
-      background-color: #397249;
-      color: #FFFFFF;
+      background-color: var(--link-hover-bg);
+      color: var(--link-hover-text);
       text-decoration: none;
       text-shadow: 1px 1px 1px #333;
     }
@@ -60,20 +80,39 @@
       border-top: 1px solid #ccc;
       margin: 30px 0;
     }
+
+    .toggle-container {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+    }
+    .toggle-btn {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--highlight);
+    }
+    .toggle-btn:hover {
+      color: var(--link-hover-bg);
+    }
   </style>
 </head>
 <body>
+<div class="toggle-container">
+  <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
+</div>
 
 <h1>Akash Gopal Gupta</h1>
 <hr />
 <blockquote>
-  Offensive Security Engineer skilled in web application security, automation, and CTFs. Strong at identifying and exploiting real-world flaws like XSS, SQLi, IDOR, and privilege escalation. Experienced in secure coding, building internal tools, and testing modern app stacks. Eager to contribute to Meta’s mission by fortifying products against evolving threats.
+  Offensive Security Engineer focused on red teaming, reverse engineering, and binary exploitation. Proven skills in CTFs, privilege escalation, and vulnerability research. Experienced in custom tooling, exploit development, and dissecting real-world systems. Eager to contribute to cutting-edge offensive security research and red team simulation.
 </blockquote>
 <hr />
 
 <h2>Education</h2>
 <dl>
-  <dt>2022–2025 </dt>
+  <dt>2022–2025</dt>
   <dd>
     Bachelor of Computer Applications, JIMS Rohini Sector 5<br />
     <em>Focus: Cybersecurity and Network Security</em>
@@ -84,56 +123,68 @@
 <dl>
   <dt>Capture The Flag (CTF) Competitions</dt>
   <dd>
-    - Top 100 (out of 22,000+) in Pentathon 2025 India (individual).<br />
-    - 60th place (of 600+) in CTF 1753 (team of 3).<br />
-    - 239th (of 5000+) in TryHackMe Intrusion CTF (team event).<br />
-    - DownUnder CTF 2024: Team Rank ~111.<br />
-    - Gained advanced skills in web exploitation, cryptanalysis, reconnaissance, binary exploitation, and reverse engineering.<br />
-    - Applied offensive techniques aligned with product security challenges.
+    - Top 100 (out of 22,000+) in Pentathon 2025 India (individual)<br />
+    - 60th place (of 600+) in CTF 1753 (team of 3)<br />
+    - 239th (of 5000+) in TryHackMe Intrusion CTF (team event)<br />
+    - DownUnder CTF 2024: Team Rank ~111<br />
+    - Specialized in pwn, reverse engineering, privilege escalation, and web exploitation<br />
+    - Applied offensive techniques aligned with real-world threat scenarios
   </dd>
 
   <dt>Network Vulnerability Scanner</dt>
   <dd>
-    Designed and built a CLI scanner to detect open ports, CVEs, and network misconfigurations.<br />
-    Mimics real-world pentesting workflows to automate and accelerate recon.<br />
-    Python-based, modular, and easy to extend for automation.
+    Built a modular CLI tool to scan for open ports, CVEs, and misconfigurations<br />
+    Simulates red team recon workflows; supports automation via Python<br />
+    Designed for extensibility and integration with other tools
   </dd>
 
   <dt>Secure College Companion App</dt>
   <dd>
-    Built an Android app with secure login, faculty messaging, and announcement delivery.<br />
-    Followed OWASP MASVS and secure coding principles.<br />
-    Practiced secure SDLC with threat modeling and mitigation.
+    Developed a secure Android app with authentication, announcements, and messaging<br />
+    Followed OWASP MASVS, secure SDLC, and applied threat modeling techniques
+  </dd>
+
+  <dt>Custom Tooling & Utilities</dt>
+  <dd>
+    Created scripts and tools for automation in CTFs and real-world scenarios<br />
+    Tools include payload generators, recon modules, and local privilege escalation testers
   </dd>
 </dl>
 
 <h2>Technical Skills</h2>
 <dl>
-  <dt>Security & Pentesting</dt>
+  <dt>Red Team & Security</dt>
   <dd>
-    Burp Suite, Nmap, OWASP ZAP, Nikto, Dirsearch, FFUF, Ghidra (basic)<br />
-    Web exploitation (XSS, SQLi, IDOR, access control), privilege escalation, reverse engineering basics<br />
-    Skilled in manual testing, recon, and scripting custom payloads.
+    Binary exploitation, privilege escalation, reverse engineering (basic–intermediate), enumeration<br />
+    Tools: Ghidra, Exegol (offensive OS), GDB, BloodHound, Burp Suite, Nmap, FFUF, Dirsearch<br />
+    Web (XSS, SQLi, IDOR), Linux post-exploitation, and custom payload crafting
   </dd>
 
   <dt>Programming & Scripting</dt>
   <dd>
-    Python, Bash, HTML/CSS, JavaScript (XSS-oriented), SQL<br />
-    Created CTF/pentesting utilities and automation scripts.
+    Python, Bash, C (basic RE), JavaScript (for XSS), HTML/CSS, SQL<br />
+    Currently learning Assembly and building exploit automation tools
   </dd>
 
-  <dt>Operating Systems & Platforms</dt>
+  <dt>Platforms & Ecosystem</dt>
   <dd>
     Kali Linux, Windows, Exegol<br />
-    Active on Hack The Box and TryHackMe<br />
-    Git & GitHub for version control and collaboration.
+    Hack The Box, TryHackMe, PortSwigger Labs<br />
+    Git for version control
+  </dd>
+</dl>
+
+<h2>Writeups & Research</h2>
+<dl>
+  <dt>Medium</dt>
+  <dd>
+    <a href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener noreferrer">medium.com/@akash.gupta.contact</a><br />
+    Published 5+ in-depth writeups documenting CTF challenges, offensive security tactics, and technical learning journeys.
   </dd>
 </dl>
 
 <h2>Professional Profiles</h2>
 <dl>
-  <dt>GitHub</dt>
-  <dd><a href="https://github.com/codebreaker25" target="_blank" rel="noopener noreferrer">github.com/codebreaker25</a></dd>
   <dt>LinkedIn</dt>
   <dd><a href="https://www.linkedin.com/in/akash-gupta-codebreaker" target="_blank" rel="noopener noreferrer">linkedin.com/in/akash-gupta-codebreaker</a></dd>
   <dt>Portfolio</dt>
@@ -144,6 +195,14 @@
 <blockquote>
   akash.gupta.contact@gmail.com | +91 9773865396
 </blockquote>
+
+<script>
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+    const icon = document.querySelector('.toggle-btn');
+    icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+  }
+</script>
 
 </body>
 </html>
