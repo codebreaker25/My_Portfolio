@@ -2,207 +2,299 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Akash Gupta - Security Engineer Portfolio</title>
-  <style>
-    :root {
-      --bg-color: #FFFFFF;
-      --text-color: #333;
-      --highlight: #397249;
-      --subtle: #9CB770;
-      --link-hover-bg: #397249;
-      --link-hover-text: #FFFFFF;
-    }
-
-    body.dark-mode {
-      --bg-color: #121212;
-      --text-color: #EEE;
-      --highlight: #9CB770;
-      --subtle: #8AA35B;
-      --link-hover-bg: #9CB770;
-      --link-hover-text: #000;
-    }
-
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      max-width: 800px;
-      margin: auto;
-      background: var(--bg-color);
-      padding: 20px;
-      line-height: 1.6;
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
-    }
-
-    h1 {
-      font-size: 42px;
-      color: var(--highlight);
-      text-align: center;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
-    h2 {
-      color: var(--highlight);
-      margin-top: 40px;
-      margin-bottom: 10px;
-      border-left: 6px solid var(--subtle);
-      padding-left: 10px;
-      font-weight: 600;
-    }
-    dt {
-      float: left;
-      clear: left;
-      width: 20%;
-      font-weight: bold;
-      color: var(--highlight);
-    }
-    dd {
-      margin-left: 22%;
-      margin-bottom: 12px;
-    }
-    blockquote {
-      font-style: italic;
-      text-align: center;
-      color: #555;
-      margin: 10px 0 40px;
-    }
-    a {
-      text-decoration: none;
-      color: var(--highlight);
-    }
-    a:hover, a:active {
-      background-color: var(--link-hover-bg);
-      color: var(--link-hover-text);
-      text-decoration: none;
-      text-shadow: 1px 1px 1px #333;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 30px 0;
-    }
-
-    .toggle-container {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-    }
-    .toggle-btn {
-      background-color: transparent;
-      border: none;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--highlight);
-    }
-    .toggle-btn:hover {
-      color: var(--link-hover-bg);
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akash Gupta — Security Engineer</title>
+  <meta name="description" content="Akash Gupta — Security Engineer specializing in VAPT, offensive tooling, and AI-in-pentesting. Ranked 77th/22,000+ in Pentathon 2025. Interactive terminal portfolio." />
+  <meta name="author" content="Akash Gupta" />
+  <meta property="og:title" content="Akash Gupta — Security Engineer" />
+  <meta property="og:description" content="VAPT · Offensive Tooling · AI-in-Pentesting. Interactive terminal portfolio." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>" />
 </head>
 <body>
-<div class="toggle-container">
-  <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle dark mode">🌙</button>
-</div>
 
-<h1>Akash Gopal Gupta</h1>
-<hr />
-<blockquote>
-  Offensive Security Engineer focused on red teaming, reverse engineering, and binary exploitation. Proven skills in CTFs, privilege escalation, and vulnerability research. Experienced in custom tooling, exploit development, and dissecting real-world systems. Eager to contribute to cutting-edge offensive security research and red team simulation.
-</blockquote>
-<hr />
+<canvas id="matrix-canvas"></canvas>
 
-<h2>Education</h2>
-<dl>
-  <dt>2022–2025</dt>
-  <dd>
-    Bachelor of Computer Applications, JIMS Rohini Sector 5<br />
-    <em>Focus: Cybersecurity and Network Security</em>
-  </dd>
-</dl>
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">akash@codebreaker25<span class="blink">▊</span></div>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#ctf">ctf</a>
+      <a href="#skills">skills</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
 
-<h2>Experience & Projects</h2>
-<dl>
-  <dt>Capture The Flag (CTF) Competitions</dt>
-  <dd>
-    - Top 100 (out of 22,000+) in Pentathon 2025 India (individual)<br />
-    - 60th place (of 600+) in CTF 1753 (team of 3)<br />
-    - 239th (of 5000+) in TryHackMe Intrusion CTF (team event)<br />
-    - DownUnder CTF 2024: Team Rank ~111<br />
-    - Specialized in pwn, reverse engineering, privilege escalation, and web exploitation<br />
-    - Applied offensive techniques aligned with real-world threat scenarios
-  </dd>
+<!-- ===== HERO ===== -->
+<header class="hero container">
+  <div class="handle">$ ssh guest@codebreaker25 — connected</div>
+  <h1><span class="bracket">[</span> Akash Gupta <span class="bracket">]</span></h1>
+  <div class="typed-line"><span id="typed"></span><span class="cursor">&nbsp;</span></div>
+  <p class="tagline">
+    Security Engineer with hands-on experience in VAPT, security automation, and offensive tooling —
+    building custom security tools and wiring AI into pentesting workflows.
+  </p>
 
-  <dt>Network Vulnerability Scanner</dt>
-  <dd>
-    Built a modular CLI tool to scan for open ports, CVEs, and misconfigurations<br />
-    Simulates red team recon workflows; supports automation via Python<br />
-    Designed for extensibility and integration with other tools
-  </dd>
+  <div class="stat-chips">
+    <div class="chip"><b>77th</b> / 22,000+ · Pentathon 2025</div>
+    <div class="chip"><b>13th</b> global · Team L3AK</div>
+    <div class="chip"><b>6/6</b> · FamPay CTF full clear</div>
+    <div class="chip"><b>@</b> Sopra Banking Software</div>
+  </div>
 
-  <dt>Secure College Companion App</dt>
-  <dd>
-    Developed a secure Android app with authentication, announcements, and messaging<br />
-    Followed OWASP MASVS, secure SDLC, and applied threat modeling techniques
-  </dd>
+  <div class="hero-ctas">
+    <a class="btn btn-solid" href="#terminal">▶ launch terminal</a>
+    <a class="btn btn-ghost" href="#contact">contact me</a>
+  </div>
+</header>
 
-  <dt>Custom Tooling & Utilities</dt>
-  <dd>
-    Created scripts and tools for automation in CTFs and real-world scenarios<br />
-    Tools include payload generators, recon modules, and local privilege escalation testers
-  </dd>
-</dl>
+<!-- ===== TERMINAL ===== -->
+<section class="terminal-section container" id="terminal">
+  <p class="terminal-hint">
+    Interactive shell — type <kbd>help</kbd> to begin. Try <kbd>whoami</kbd>, <kbd>projects</kbd>, <kbd>ctf</kbd>, <kbd>matrix</kbd>… (there are hidden commands 🚩)
+  </p>
+  <div class="terminal" id="terminal-box">
+    <div class="term-titlebar">
+      <span class="term-dot red"></span>
+      <span class="term-dot yellow"></span>
+      <span class="term-dot green"></span>
+      <span class="term-title">guest@codebreaker25: ~</span>
+      <button class="term-max" id="term-max">▢ max</button>
+    </div>
+    <div class="term-body" id="term-body"></div>
+  </div>
+</section>
 
-<h2>Technical Skills</h2>
-<dl>
-  <dt>Red Team & Security</dt>
-  <dd>
-    Binary exploitation, privilege escalation, reverse engineering (basic–intermediate), enumeration<br />
-    Tools: Ghidra, Exegol (offensive OS), GDB, BloodHound, Burp Suite, Nmap, FFUF, Dirsearch<br />
-    Web (XSS, SQLi, IDOR), Linux post-exploitation, and custom payload crafting
-  </dd>
+<!-- ===== ABOUT ===== -->
+<section id="about" class="container" data-reveal>
+  <h2 class="section-title">about</h2>
+  <p class="section-cmd">whoami --verbose</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm a <span class="hl">Security Engineer</span> focused on offensive security — VAPT,
+        security automation, and building the tooling that makes red-team work faster. I ranked
+        <span class="hl">77th out of 22,000+</span> in the national Pentathon 2025 CTF and was a
+        past member of <span class="hl">Team L3AK</span> (ranked 13th globally on CTFtime).
+      </p>
+      <p>
+        My work sits at the intersection of <span class="hl">offensive security and AI</span> —
+        I build custom recon tools, exploit-chaining workflows, and increasingly integrate LLMs
+        into pentesting via the Model Context Protocol. Currently I contribute to infrastructure
+        automation and AI-powered internal tooling at <span class="hl">Sopra Banking Software</span>.
+      </p>
+      <p>
+        Comfortable across the stack: from binary internals and reverse engineering up through web,
+        API, cloud, and Active Directory security.
+      </p>
+    </div>
+    <div class="neofetch-card">
+      <pre>       _____
+      /  _  \   ____
+     /  /_\  \ / ___\
+    /    |    / /_/  >
+    \____|__  \___  /
+            \/_____/</pre>
+      <div><span class="nf-key">user</span>@<span class="nf-key">host</span> ~ akash@codebreaker25</div>
+      <div><span class="nf-key">role</span>: Security Engineer</div>
+      <div><span class="nf-key">org</span>: Sopra Banking Software</div>
+      <div><span class="nf-key">focus</span>: VAPT · Offensive Tooling · AI</div>
+      <div><span class="nf-key">os</span>: Kali · Fedora · WSL</div>
+      <div><span class="nf-key">langs</span>: Python · Bash · JS · SQL · C</div>
+      <div><span class="nf-key">edu</span>: BCA, JIMS Rohini (2025)</div>
+      <div><span class="nf-key">uptime</span>: always learning</div>
+    </div>
+  </div>
+</section>
 
-  <dt>Programming & Scripting</dt>
-  <dd>
-    Python, Bash, C (basic RE), JavaScript (for XSS), HTML/CSS, SQL<br />
-    Currently learning Assembly and building exploit automation tools
-  </dd>
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="container" data-reveal>
+  <h2 class="section-title">experience</h2>
+  <p class="section-cmd">cat /var/log/career.log</p>
+  <div class="xp-card">
+    <div class="xp-head">
+      <span class="xp-role">Junior Engineer — Infrastructure Management</span>
+      <span class="xp-date">Mar 2026 – Present</span>
+    </div>
+    <div class="xp-org">Sopra Banking Software · Noida (Remote)</div>
+    <ul>
+      <li>Built an internal <b>AI Copilot assistant</b> using Microsoft Copilot Studio backed by SharePoint SOP documentation, letting the team query operational procedures in natural language — eliminating manual doc browsing.</li>
+      <li>Developed <b>automation scripts</b> for infrastructure monitoring and operational workflows — trusted with automation initiatives within months of joining.</li>
+      <li>Manage batch operations and <b>production incident response</b> across rotating shifts (morning/noon/night).</li>
+    </ul>
+  </div>
+</section>
 
-  <dt>Platforms & Ecosystem</dt>
-  <dd>
-    Kali Linux, Windows, Exegol<br />
-    Hack The Box, TryHackMe, PortSwigger Labs<br />
-    Git for version control
-  </dd>
-</dl>
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="container" data-reveal>
+  <h2 class="section-title">projects</h2>
+  <p class="section-cmd">ls -la ~/projects</p>
+  <div class="proj-grid">
+    <article class="proj-card">
+      <div class="proj-file">kali-mcp-appliance/</div>
+      <div class="proj-name">AI-Powered Pentest Appliance</div>
+      <p class="proj-desc">
+        Containerized Kali appliance (Docker + WSL) enabling AI-assisted tool execution via the
+        MCP protocol — Nmap, Impacket, and CrackMapExec callable directly by LLMs. Published a
+        detailed write-up covering architecture, VPN/networking fixes across WSL/Docker, and
+        threat modeling of the appliance itself.
+      </p>
+      <div class="proj-tags"><span>Docker</span><span>WSL</span><span>MCP</span><span>Python</span><span>LLM</span></div>
+    </article>
 
-<h2>Writeups & Research</h2>
-<dl>
-  <dt>Medium</dt>
-  <dd>
-    <a href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener noreferrer">medium.com/@akash.gupta.contact</a><br />
-    Published 5+ in-depth writeups documenting CTF challenges, offensive security tactics, and technical learning journeys.
-  </dd>
-</dl>
+    <article class="proj-card">
+      <div class="proj-file">net-vuln-scanner/</div>
+      <div class="proj-name">Network Vulnerability Scanner</div>
+      <p class="proj-desc">
+        Python CLI tool for automated recon: port scanning, service enumeration, and CVE matching.
+        Outputs structured JSON/CSV reports for rapid triage, designed to slot into pentest pipelines.
+      </p>
+      <div class="proj-tags"><span>Python</span><span>CLI</span><span>Recon</span><span>JSON/CSV</span></div>
+    </article>
 
-<h2>Professional Profiles</h2>
-<dl>
-  <dt>LinkedIn</dt>
-  <dd><a href="https://www.linkedin.com/in/akash-gupta-codebreaker" target="_blank" rel="noopener noreferrer">linkedin.com/in/akash-gupta-codebreaker</a></dd>
-  <dt>Portfolio</dt>
-  <dd><a href="https://codebreaker25.github.io/My_Portfolio/" target="_blank" rel="noopener noreferrer">codebreaker25.github.io/My_Portfolio</a></dd>
-</dl>
+    <article class="proj-card">
+      <div class="proj-file">secure-college-companion/</div>
+      <div class="proj-name">Secure College Companion</div>
+      <p class="proj-desc">
+        Authenticated Android messaging and announcement app built following secure SDLC and
+        OWASP MASVS principles, with threat modeling applied throughout the design.
+      </p>
+      <div class="proj-tags"><span>Android</span><span>OWASP MASVS</span><span>Secure SDLC</span></div>
+    </article>
+  </div>
+</section>
 
-<hr />
-<blockquote>
-  akash.gupta.contact@gmail.com | +91 9773865396
-</blockquote>
+<!-- ===== CTF ===== -->
+<section id="ctf" class="container" data-reveal>
+  <h2 class="section-title">ctf &amp; competitions</h2>
+  <p class="section-cmd">./submit_flag.sh</p>
+  <div class="ctf-flag-banner">
+    🚩 <b>FamPay Security CTF — full board clear:</b> solved all 6/6 challenges (1,850 pts, 100% solve rate)
+    spanning Cloud, Web authentication, Firebase security rules, and static/dynamic analysis.
+  </div>
+  <div class="ctf-grid">
+    <div class="ctf-card">
+      <div class="ctf-rank">77<span style="font-size:13px">th</span></div>
+      <div class="ctf-name">Pentathon 2025</div>
+      <div class="ctf-note">of 22,000+ · national · individual</div>
+    </div>
+    <div class="ctf-card">
+      <div class="ctf-rank">112<span style="font-size:13px">/500</span></div>
+      <div class="ctf-name">CloudSEK CTF — Finalist</div>
+      <div class="ctf-note">qualified from 2,500+</div>
+    </div>
+    <div class="ctf-card">
+      <div class="ctf-rank">13<span style="font-size:13px">th</span></div>
+      <div class="ctf-name">Team L3AK — past member</div>
+      <div class="ctf-note">global · CTFtime</div>
+    </div>
+    <div class="ctf-card">
+      <div class="ctf-rank">60<span style="font-size:13px">th</span></div>
+      <div class="ctf-name">CTF 1753</div>
+      <div class="ctf-note">of 600+</div>
+    </div>
+    <div class="ctf-card">
+      <div class="ctf-rank">~111<span style="font-size:13px">th</span></div>
+      <div class="ctf-name">DownUnder CTF 2024</div>
+      <div class="ctf-note">team ranking</div>
+    </div>
+  </div>
+  <p style="margin-top:18px" class="dim">
+    Skills demonstrated: Web Exploitation (OWASP), API Security, JWT/SSTI/RCE chains,
+    Binary Exploitation, Reverse Engineering, Privilege Escalation, Recon Automation.
+  </p>
+</section>
 
-<script>
-  function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    const icon = document.querySelector('.toggle-btn');
-    icon.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
-  }
-</script>
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="container" data-reveal>
+  <h2 class="section-title">skills</h2>
+  <p class="section-cmd">cat skills.json | jq</p>
+  <div class="skill-grid">
+    <div class="skill-box">
+      <h3>Offensive Techniques</h3>
+      <div class="skill-tags">
+        <span>Web Pentesting (OWASP Top 10)</span><span>API Security</span><span>REST/GraphQL</span>
+        <span>IDOR</span><span>Role Tampering</span><span>XSS</span><span>SQLi</span><span>JWT Attacks</span>
+        <span>SSTI</span><span>Active Directory</span><span>Privilege Escalation</span><span>Source Code Review</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <h3>Tools &amp; Frameworks</h3>
+      <div class="skill-tags">
+        <span>Burp Suite</span><span>Nmap</span><span>Wireshark</span><span>Ghidra</span><span>GDB/pwndbg</span>
+        <span>BloodHound</span><span>Impacket</span><span>CrackMapExec</span><span>FFUF</span><span>Dirsearch</span>
+        <span>Exegol</span><span>OWASP ZAP</span><span>Postman</span><span>Docker</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <h3>Programming &amp; Scripting</h3>
+      <div class="skill-tags">
+        <span>Python</span><span>Bash</span><span>JavaScript</span><span>SQL</span><span>C (RE)</span><span>Assembly (learning)</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <h3>AI &amp; Automation</h3>
+      <div class="skill-tags">
+        <span>MCP</span><span>LLM Tool Integration</span><span>Microsoft Copilot Studio</span>
+        <span>RAG Pipelines</span><span>Python/Bash Automation</span>
+      </div>
+    </div>
+    <div class="skill-box">
+      <h3>Platforms</h3>
+      <div class="skill-tags">
+        <span>Kali Linux</span><span>Fedora</span><span>Windows</span><span>WSL</span>
+        <span>Hack The Box</span><span>TryHackMe</span><span>PortSwigger Labs</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== WRITING ===== -->
+<section id="writing" class="container" data-reveal>
+  <h2 class="section-title">writeups &amp; research</h2>
+  <p class="section-cmd">git log --oneline ~/blog</p>
+  <div class="writing-card">
+    <p>
+      I publish in-depth technical write-ups on CTF challenges, offensive tactics, and tooling —
+      including a full breakdown of the <b>Kali MCP appliance</b> (architecture, WSL/Docker networking
+      fixes, and its own threat model).
+    </p>
+    <p style="margin-top:12px">
+      → <a href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">medium.com/@akash.gupta.contact</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="container contact-section" data-reveal>
+  <span id="resume-anchor"></span>
+  <h2 class="section-title" style="display:inline-block">contact</h2>
+  <p class="section-cmd">./connect.sh</p>
+  <p class="dim">Open to security engineering, red team, and offensive tooling roles. Let's talk.</p>
+  <div class="contact-links">
+    <a class="btn btn-solid" href="mailto:akash.gupta.contact@gmail.com">✉ email</a>
+    <a class="btn btn-ghost" href="https://github.com/codebreaker25" target="_blank" rel="noopener">github</a>
+    <a class="btn btn-ghost" href="https://www.linkedin.com/in/akash-gupta-codebreaker" target="_blank" rel="noopener">linkedin</a>
+    <a class="btn btn-ghost" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">medium</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span class="foot-cmd">$</span> built with vim, caffeine &amp; a healthy paranoia · © 2026 Akash Gupta<br />
+    <span class="dim">akash.gupta.contact@gmail.com · +91 9773865396</span>
+  </div>
+</footer>
+
+<script src="terminal.js"></script>
 </body>
 </html>
