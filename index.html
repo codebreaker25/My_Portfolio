@@ -83,9 +83,10 @@
       <p>
         I'm a <span class="hl">Security Engineer</span> focused on offensive security — VAPT,
         security automation, and building the tooling that makes red-team work faster. I ranked
-        <span class="hl">77th out of 22,000+</span> in the national Pentathon 2025 CTF and have
-        documented <span class="hl">130+ HackTheBox &amp; CTF writeups</span> while working through
-        the <span class="hl">HTB CPTS</span> penetration-testing certification track.
+        <span class="hl">77th out of 22,000+</span> in the national Pentathon 2025 CTF, was a
+        <span class="hl">CloudSEK CTF finalist</span>, and cleared the full board at the
+        <span class="hl">FamPay Security CTF</span> (6/6). I've documented
+        <span class="hl">130+ HackTheBox &amp; CTF writeups</span> along the way.
       </p>
       <p>
         My work sits at the intersection of <span class="hl">offensive security and AI</span> —
@@ -196,7 +197,7 @@
     <div class="ctf-card">
       <div class="ctf-rank">130<span style="font-size:13px">+</span></div>
       <div class="ctf-name">HTB / CTF Writeups</div>
-      <div class="ctf-note">documented · CPTS track in progress</div>
+      <div class="ctf-note">documented &amp; published</div>
     </div>
     <div class="ctf-card">
       <div class="ctf-rank">60<span style="font-size:13px">th</span></div>
@@ -263,15 +264,43 @@
 <section id="writing" class="container" data-reveal>
   <h2 class="section-title">writeups &amp; research</h2>
   <p class="section-cmd">git log --oneline ~/blog</p>
-  <div class="writing-card">
-    <p>
-      I publish in-depth technical write-ups on CTF challenges, offensive tactics, and tooling —
-      including a full breakdown of the <b>Kali MCP appliance</b> (architecture, WSL/Docker networking
-      fixes, and its own threat model).
-    </p>
-    <p style="margin-top:12px">
-      → <a href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">medium.com/@akash.gupta.contact</a>
-    </p>
+  <p class="dim" style="margin-bottom:22px">
+    Featured technical write-ups published on
+    <a href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">Medium</a>.
+    Full multi-step exploitation chains, from initial recon to root.
+  </p>
+  <div class="writeup-grid">
+    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
+      <div class="writeup-badge">CloudSEK CTF · Round 2 · Finalist</div>
+      <div class="writeup-title">CloudSEK CTF_FINAL 2025 — Multi-step exploitation (JWT → SSTI → RCE)</div>
+      <p class="writeup-desc">Chaining a JWT weakness into server-side template injection and finally remote code execution — the full Round 2 finalist submission.</p>
+      <div class="writeup-tags"><span>JWT</span><span>SSTI</span><span>RCE</span><span>Web</span></div>
+      <span class="writeup-link">read on Medium →</span>
+    </a>
+
+    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
+      <div class="writeup-badge">CloudSEK CTF · 2025</div>
+      <div class="writeup-title">CloudSEK CTF 2025 — Writeup</div>
+      <p class="writeup-desc">Qualifier writeup walking through the challenge set — recon, auth bypasses, and the reasoning behind each solve.</p>
+      <div class="writeup-tags"><span>Web</span><span>Auth</span><span>Recon</span></div>
+      <span class="writeup-link">read on Medium →</span>
+    </a>
+
+    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
+      <div class="writeup-badge">FamPay Security CTF · 6/6 full clear 🚩</div>
+      <div class="writeup-title">FamPay Security CTF — Full Board Clear</div>
+      <p class="writeup-desc">All six challenges from one APK: hardcoded native secrets, weak Firebase rules, an App Check bypass, a backdoored signing scheme, a JWT alg:none bypass, and an AWS SSRF→IMDS chain on live EC2.</p>
+      <div class="writeup-tags"><span>Android</span><span>Firebase</span><span>JWT</span><span>AWS SSRF</span><span>IMDS</span></div>
+      <span class="writeup-link">read on Medium →</span>
+    </a>
+
+    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
+      <div class="writeup-badge">Research · Tooling</div>
+      <div class="writeup-title">AI-Powered Kali MCP Appliance</div>
+      <p class="writeup-desc">Architecture deep-dive on the containerized Kali appliance — VPN/networking fixes across WSL/Docker and a threat model of the appliance itself.</p>
+      <div class="writeup-tags"><span>MCP</span><span>Docker</span><span>WSL</span><span>LLM</span></div>
+      <span class="writeup-link">read on Medium →</span>
+    </a>
   </div>
 </section>
 

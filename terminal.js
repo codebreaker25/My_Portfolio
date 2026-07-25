@@ -27,8 +27,8 @@
       { c: "", t: "" },
       { c: "", t: "Security Engineer with hands-on experience in VAPT, security" },
       { c: "", t: "automation, and offensive tooling. Ranked 77th / 22,000+ in" },
-      { c: "", t: "Pentathon 2025. 130+ documented HackTheBox & CTF writeups, currently" },
-      { c: "", t: "working through the HTB CPTS penetration-testing certification track." },
+      { c: "", t: "Pentathon 2025. CloudSEK CTF finalist and FamPay CTF full-board clear" },
+      { c: "", t: "(6/6), with 130+ documented HackTheBox & CTF writeups on Medium." },
       { c: "", t: "Currently building AI-powered internal tooling at Sopra Banking Software." },
     ],
     skills: [
@@ -69,7 +69,7 @@
       { c: "", t: "" },
       { c: "t-amber t-bold", t: "77th / 22,000+  " , x: "Pentathon 2025 (national, individual)" },
       { c: "t-amber t-bold", t: "112 / 500     " , x: "CloudSEK CTF — Finalist (qualified from 2,500+)" },
-      { c: "t-amber t-bold", t: "130+          " , x: "HackTheBox / CTF writeups documented (CPTS track)" },
+      { c: "t-amber t-bold", t: "130+          " , x: "HackTheBox / CTF writeups documented & published" },
       { c: "t-amber t-bold", t: "60th / 600+   " , x: "CTF 1753" },
       { c: "t-amber t-bold", t: "~111th        " , x: "DownUnder CTF 2024" },
       { c: "", t: "" },
@@ -180,8 +180,12 @@
     writeups() {
       blank();
       print("t-amber t-bold", "Writeups & Research");
-      print("", "Published in-depth writeups on CTF challenges, offensive tactics,");
-      print("", "and the Kali MCP appliance (architecture, WSL/Docker networking, threat model).");
+      blank();
+      print("", `<span class="t-green">▸</span> CloudSEK CTF_FINAL 2025 — Multi-step exploitation (JWT → SSTI → RCE)`);
+      print("", `<span class="t-green">▸</span> CloudSEK CTF 2025 — Writeup`);
+      print("", `<span class="t-green">▸</span> FamPay Security CTF — full board clear (Android · Firebase · AWS SSRF→IMDS)`);
+      print("", `<span class="t-green">▸</span> AI-Powered Kali MCP appliance — architecture, WSL/Docker networking, threat model`);
+      blank();
       print("", `<span class="t-green">medium  </span> <a href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">medium.com/@akash.gupta.contact</a>`);
       blank();
     },
