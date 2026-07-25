@@ -27,7 +27,8 @@
       { c: "", t: "" },
       { c: "", t: "Security Engineer with hands-on experience in VAPT, security" },
       { c: "", t: "automation, and offensive tooling. Ranked 77th / 22,000+ in" },
-      { c: "", t: "Pentathon 2025. Past member of Team L3AK (13th globally, CTFtime)." },
+      { c: "", t: "Pentathon 2025. 130+ documented HackTheBox & CTF writeups, currently" },
+      { c: "", t: "working through the HTB CPTS penetration-testing certification track." },
       { c: "", t: "Currently building AI-powered internal tooling at Sopra Banking Software." },
     ],
     skills: [
@@ -68,7 +69,7 @@
       { c: "", t: "" },
       { c: "t-amber t-bold", t: "77th / 22,000+  " , x: "Pentathon 2025 (national, individual)" },
       { c: "t-amber t-bold", t: "112 / 500     " , x: "CloudSEK CTF — Finalist (qualified from 2,500+)" },
-      { c: "t-amber t-bold", t: "13th global   " , x: "Team L3AK — past member (CTFtime)" },
+      { c: "t-amber t-bold", t: "130+          " , x: "HackTheBox / CTF writeups documented (CPTS track)" },
       { c: "t-amber t-bold", t: "60th / 600+   " , x: "CTF 1753" },
       { c: "t-amber t-bold", t: "~111th        " , x: "DownUnder CTF 2024" },
       { c: "", t: "" },
