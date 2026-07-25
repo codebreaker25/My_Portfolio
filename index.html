@@ -143,24 +143,29 @@
   <div class="proj-grid">
     <article class="proj-card">
       <div class="proj-file">kali-mcp-appliance/</div>
-      <div class="proj-name">AI-Powered Pentest Appliance</div>
+      <div class="proj-name">AI-Powered Kali MCP Server</div>
       <p class="proj-desc">
-        Containerized Kali appliance (Docker + WSL) enabling AI-assisted tool execution via the
-        MCP protocol — Nmap, Impacket, and CrackMapExec callable directly by LLMs. Published a
-        detailed write-up covering architecture, VPN/networking fixes across WSL/Docker, and
-        threat modeling of the appliance itself.
+        A Model Context Protocol server in a Docker-containerized Kali environment that lets LLMs
+        (Claude / Copilot) orchestrate <b>15+ pentest tools</b> through natural language. Built on
+        FastMCP over stdio, with OpenVPN for HTB/TryHackMe labs. The AI chains tools intelligently —
+        spot SMB on 445, auto-suggest CrackMapExec. Hardened with shlex input sanitization,
+        300s command timeouts, and container isolation.
       </p>
-      <div class="proj-tags"><span>Docker</span><span>WSL</span><span>MCP</span><span>Python</span><span>LLM</span></div>
+      <div class="proj-tags"><span>Docker</span><span>Kali</span><span>FastMCP</span><span>Python</span><span>OpenVPN</span><span>LLM</span></div>
+      <a class="proj-link" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">read the writeup →</a>
     </article>
 
     <article class="proj-card">
-      <div class="proj-file">net-vuln-scanner/</div>
+      <div class="proj-file">network-vulnerability-scanner/</div>
       <div class="proj-name">Network Vulnerability Scanner</div>
       <p class="proj-desc">
-        Python CLI tool for automated recon: port scanning, service enumeration, and CVE matching.
-        Outputs structured JSON/CSV reports for rapid triage, designed to slot into pentest pipelines.
+        A Python CLI that automates the full assessment pipeline: custom <b>multi-threaded socket
+        port scanning</b> (100+ threads, queue-based), service fingerprinting, dual-mode version
+        detection (banner + nmap <code>-sV</code>), and <b>CVE correlation via the NVD API</b> with
+        semantic-version matching and CVSS scoring. Outputs structured JSON / CSV / TXT reports.
       </p>
-      <div class="proj-tags"><span>Python</span><span>CLI</span><span>Recon</span><span>JSON/CSV</span></div>
+      <div class="proj-tags"><span>Python</span><span>Multithreading</span><span>NVD API</span><span>python-nmap</span><span>CVE/CVSS</span></div>
+      <a class="proj-link" href="https://github.com/codebreaker25/network-vulnerability-scanner" target="_blank" rel="noopener">view on GitHub →</a>
     </article>
 
     <article class="proj-card">
@@ -270,7 +275,7 @@
     Full multi-step exploitation chains, from initial recon to root.
   </p>
   <div class="writeup-grid">
-    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
+    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact/cloudsek-ctf-final-2025-multi-step-exploitation-jwt-ssti-rce-7df71e4b8dad" target="_blank" rel="noopener">
       <div class="writeup-badge">CloudSEK CTF · Round 2 · Finalist</div>
       <div class="writeup-title">CloudSEK CTF_FINAL 2025 — Multi-step exploitation (JWT → SSTI → RCE)</div>
       <p class="writeup-desc">Chaining a JWT weakness into server-side template injection and finally remote code execution — the full Round 2 finalist submission.</p>
@@ -278,7 +283,7 @@
       <span class="writeup-link">read on Medium →</span>
     </a>
 
-    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
+    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact/cloudsek-ctf-2025-writeup-5bff19734490" target="_blank" rel="noopener">
       <div class="writeup-badge">CloudSEK CTF · 2025</div>
       <div class="writeup-title">CloudSEK CTF 2025 — Writeup</div>
       <p class="writeup-desc">Qualifier writeup walking through the challenge set — recon, auth bypasses, and the reasoning behind each solve.</p>
@@ -286,13 +291,13 @@
       <span class="writeup-link">read on Medium →</span>
     </a>
 
-    <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
+    <div class="writeup-card no-link">
       <div class="writeup-badge">FamPay Security CTF · 6/6 full clear 🚩</div>
       <div class="writeup-title">FamPay Security CTF — Full Board Clear</div>
       <p class="writeup-desc">All six challenges from one APK: hardcoded native secrets, weak Firebase rules, an App Check bypass, a backdoored signing scheme, a JWT alg:none bypass, and an AWS SSRF→IMDS chain on live EC2.</p>
       <div class="writeup-tags"><span>Android</span><span>Firebase</span><span>JWT</span><span>AWS SSRF</span><span>IMDS</span></div>
-      <span class="writeup-link">read on Medium →</span>
-    </a>
+      <span class="writeup-link dim-link">writeup publishing soon</span>
+    </div>
 
     <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
       <div class="writeup-badge">Research · Tooling</div>

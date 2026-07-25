@@ -417,6 +417,21 @@ section { padding: 56px 0; }
   border-radius: 4px;
   padding: 2px 8px;
 }
+.proj-link {
+  margin-top: 14px;
+  color: var(--green);
+  font-size: 12.5px;
+  font-weight: 600;
+  align-self: flex-start;
+}
+.proj-desc code {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0 4px;
+  font-size: 12px;
+  color: var(--amber);
+}
 
 /* ctf */
 .ctf-flag-banner {
@@ -533,6 +548,10 @@ section { padding: 56px 0; }
   padding: 2px 8px;
 }
 .writeup-link { color: var(--green); font-size: 12.5px; font-weight: 600; }
+.writeup-card.no-link { cursor: default; }
+.writeup-card.no-link:hover { transform: none; border-color: var(--border); box-shadow: none; }
+.writeup-card.no-link:hover .writeup-title { color: #eef5ff; }
+.writeup-link.dim-link { color: var(--text-dim); font-weight: 500; font-style: italic; }
 
 /* contact */
 .contact-section { text-align: center; padding-bottom: 30px; }

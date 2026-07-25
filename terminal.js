@@ -49,15 +49,18 @@
       { c: "", t: "    Microsoft Copilot Studio, RAG pipelines, Python/Bash automation" },
     ],
     projects: [
-      { c: "t-amber t-bold", t: "AI-Powered Pentest Appliance (Kali MCP Server)" },
-      { c: "", t: "  Containerized Kali appliance (Docker + WSL) enabling AI-assisted" },
-      { c: "", t: "  tool execution via MCP — Nmap, Impacket, CrackMapExec callable by LLMs." },
-      { c: "t-dim", t: "  stack: Docker · WSL · MCP · Python" },
+      { c: "t-amber t-bold", t: "AI-Powered Kali MCP Server" },
+      { c: "", t: "  Docker-containerized Kali MCP server letting LLMs orchestrate 15+" },
+      { c: "", t: "  pentest tools via natural language. FastMCP over stdio, OpenVPN for" },
+      { c: "", t: "  HTB/THM labs, shlex sanitization + 300s timeouts for safe execution." },
+      { c: "t-dim", t: "  stack: Docker · Kali · FastMCP · Python · OpenVPN · LLM" },
       { c: "", t: "" },
       { c: "t-amber t-bold", t: "Network Vulnerability Scanner" },
-      { c: "", t: "  Python CLI for automated recon: port scanning, service enumeration," },
-      { c: "", t: "  CVE matching. Structured JSON/CSV reports for rapid triage." },
-      { c: "t-dim", t: "  stack: Python · CLI · JSON/CSV" },
+      { c: "", t: "  Python CLI: multi-threaded socket port scanning (100+ threads)," },
+      { c: "", t: "  dual-mode version detection (banner + nmap -sV), and CVE correlation" },
+      { c: "", t: "  via the NVD API with semver matching + CVSS scoring. JSON/CSV/TXT out." },
+      { c: "t-dim", t: "  stack: Python · Multithreading · NVD API · python-nmap" },
+      { c: "t-cyan", t: "  github.com/codebreaker25/network-vulnerability-scanner" },
       { c: "", t: "" },
       { c: "t-amber t-bold", t: "Secure College Companion (Android App)" },
       { c: "", t: "  Authenticated messaging + announcement app following secure SDLC" },
@@ -183,7 +186,7 @@
       blank();
       print("", `<span class="t-green">▸</span> CloudSEK CTF_FINAL 2025 — Multi-step exploitation (JWT → SSTI → RCE)`);
       print("", `<span class="t-green">▸</span> CloudSEK CTF 2025 — Writeup`);
-      print("", `<span class="t-green">▸</span> FamPay Security CTF — full board clear (Android · Firebase · AWS SSRF→IMDS)`);
+      print("", `<span class="t-green">▸</span> FamPay Security CTF — full board clear (Android · Firebase · AWS SSRF→IMDS) <span class="t-dim">[soon]</span>`);
       print("", `<span class="t-green">▸</span> AI-Powered Kali MCP appliance — architecture, WSL/Docker networking, threat model`);
       blank();
       print("", `<span class="t-green">medium  </span> <a href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">medium.com/@akash.gupta.contact</a>`);
