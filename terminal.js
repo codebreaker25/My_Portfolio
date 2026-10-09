@@ -422,7 +422,7 @@
   if (typed) {
     const phrases = [
       "whoami",
-      "Security Engineer @ Sopra Banking Software",
+      "offensive security · published advisory, vendor patched",
       "VAPT · Offensive Tooling · AI-in-Pentesting",
       "77th / 22,000+ · Pentathon 2025",
       "building LLM-driven pentest workflows",
