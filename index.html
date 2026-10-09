@@ -48,7 +48,7 @@
     <div class="chip"><b>77th</b> / 22,000+ · Pentathon 2025</div>
     <div class="chip"><b>130+</b> HTB/CTF writeups</div>
     <div class="chip"><b>6/6</b> · FamPay CTF full clear</div>
-    <div class="chip"><b>@</b> Sopra Banking Software</div>
+    <div class="chip"><b>High</b> · published advisory, vendor patched</div>
   </div>
 
   <div class="hero-ctas">
@@ -124,7 +124,7 @@
   <p class="section-cmd">cat /var/log/career.log</p>
   <div class="xp-card">
     <div class="xp-head">
-      <span class="xp-role">Junior Engineer — Infrastructure Management</span>
+      <span class="xp-role">Infrastructure Engineer</span>
       <span class="xp-date">Mar 2026 – Present</span>
     </div>
     <div class="xp-org">Sopra Banking Software · Noida (Remote)</div>
@@ -275,6 +275,14 @@
     Full multi-step exploitation chains, from initial recon to root.
   </p>
   <div class="writeup-grid">
+    <a class="writeup-card" href="https://github.com/KerberoSec/Cryptika/security/advisories/GHSA-625g-hfjr-q74c" target="_blank" rel="noopener">
+      <div class="writeup-badge">Security Research · Published Advisory · High 🛡️</div>
+      <div class="writeup-title">Session burn deletes the user but leaves the token fully valid (Cryptika relay)</div>
+      <p class="writeup-desc">In an end to end encrypted messenger, pressing the panic button destroyed the account and left the session alive. A burned token still authenticated on the HTTP API and still opened a WebSocket, and the relay delivered traffic from a destroyed session to a live peer. Reported with a scripted proof of concept and a three part root cause. Vendor accepted it, credited me, and shipped the full fix in v3.0.1.</p>
+      <div class="writeup-tags"><span>CWE-613</span><span>Session</span><span>JWT</span><span>WebSocket</span><span>GHSA</span></div>
+      <span class="writeup-link">read the advisory →</span>
+    </a>
+
     <a class="writeup-card" href="https://medium.com/@akash.gupta.contact/cloudsek-ctf-final-2025-multi-step-exploitation-jwt-ssti-rce-7df71e4b8dad" target="_blank" rel="noopener">
       <div class="writeup-badge">CloudSEK CTF · Round 2 · Finalist</div>
       <div class="writeup-title">CloudSEK CTF_FINAL 2025 — Multi-step exploitation (JWT → SSTI → RCE)</div>
@@ -291,13 +299,13 @@
       <span class="writeup-link">read on Medium →</span>
     </a>
 
-    <div class="writeup-card no-link">
+    <a class="writeup-card" href="writeups/fampay-ctf.html">
       <div class="writeup-badge">FamPay Security CTF · 6/6 full clear 🚩</div>
       <div class="writeup-title">FamPay Security CTF — Full Board Clear</div>
       <p class="writeup-desc">All six challenges from one APK: hardcoded native secrets, weak Firebase rules, an App Check bypass, a backdoored signing scheme, a JWT alg:none bypass, and an AWS SSRF→IMDS chain on live EC2.</p>
       <div class="writeup-tags"><span>Android</span><span>Firebase</span><span>JWT</span><span>AWS SSRF</span><span>IMDS</span></div>
-      <span class="writeup-link dim-link">writeup publishing soon</span>
-    </div>
+      <span class="writeup-link">read the full writeup →</span>
+    </a>
 
     <a class="writeup-card" href="https://medium.com/@akash.gupta.contact" target="_blank" rel="noopener">
       <div class="writeup-badge">Research · Tooling</div>
